@@ -23,10 +23,10 @@ const Title = styled(Link)`
   margin-top: 20px;
 `;
 
-const navContainerStyle = {
+/*const navContainerStyle = {
   display: 'flex',
   alignItems: 'center',
-};
+};*/
 
 const LoginButton = styled(Link)`
   background-color: #000;
