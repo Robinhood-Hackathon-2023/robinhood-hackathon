@@ -76,7 +76,7 @@ const SearchInput = styled.input`
 `;
 
 const ButtonContainer = styled.div`
-  margin-right: 50px;  /* This will push the ButtonContainer to the right */
+  margin-right: 50px;  /* This will push the ButtonContainer to the left */
   display: flex;
 `;
 
