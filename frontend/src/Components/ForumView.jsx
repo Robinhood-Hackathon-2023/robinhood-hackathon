@@ -25,7 +25,7 @@ const ForumView = () => {
         fontFamily: "Arial, sans-serif",
         display: "flex",
         padding: "20px",
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#fffffff",
         color: "#333",
       }}
     >

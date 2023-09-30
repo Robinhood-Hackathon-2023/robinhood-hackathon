@@ -7,11 +7,22 @@ import {
   Badge,
   TextField,
   Button,
+  Chip,
 } from "@material-ui/core";
 import { Comment } from "@material-ui/icons";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import "./scss/ForumPost.scss";
+
+const getChipColor = (label) => {
+  switch (label) {
+    case 'Question': return '#3CB804';
+    case 'Poll': return '#2E7D0A';
+    case 'Rant': return '#255B0D';
+    case 'General': return '#4CCA13';
+    default: return '#4caf50';
+  }
+};
 
 const CommentSection = ({ comments }) => {
   return (
@@ -51,7 +62,6 @@ const ForumPost = ({ post, posts, setPosts }) => {
         setLikeFilled(false);
       }
   
-      // Update the posts object
       const updatedPosts = posts.map((p) =>
         p.id === post.id ? { ...p, votes: updatedVotes } : p
       );
@@ -78,9 +88,21 @@ const ForumPost = ({ post, posts, setPosts }) => {
   return (
     <Card className="cardContainer">
       <CardContent className="cardContent">
-        <Typography variant="h6" className="title">
-          {post.title}
-        </Typography>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Chip
+            label={post.label}
+            style={{
+                backgroundColor: getChipColor(post.label),
+                marginRight: '8px',
+                color: 'white'  // Added color property
+            }}
+            variant="outlined"
+        />
+          <Typography variant="h6" className="title">
+            {post.title}
+          </Typography>
+        </div>
+
         <Typography className="content">{post.content}</Typography>
 
         <div className="votingSection">
@@ -148,3 +170,4 @@ const ForumPost = ({ post, posts, setPosts }) => {
 };
 
 export default ForumPost;
+

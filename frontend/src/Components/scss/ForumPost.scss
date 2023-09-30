@@ -1,69 +1,70 @@
 .cardContainer {
   background-color: #f9f9f9 !important; /* Light background */
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 3D effect */
+  border: 2px solid black; /* Black borders */
+  border-radius: 20px !important; /* Rounded edges */
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.25) !important; /* Adjusted shadow */
   padding: 16px;
   margin: 16px auto; /* Center the card horizontally */
-  max-width: 800px; /* Set a maximum width for the card */
+  max-width: 700px; /* Adjusted max-width */
   width: 100%; /* Ensure the card takes the full width within the max-width */
 
-  transition: transform 0.3s ease-in-out;
-
+  transition: transform 0.05s ease-in-out;
   &:hover {
-    transform: scale(
-      1.02
-    ); /* Enlarge on hover for a more pronounced 3D effect */
+      transform: scale(
+          1.05
+      ); /* Enlarge on hover for a more pronounced 3D effect */
   }
 
   .cardContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .title {
-      color: #4caf50; /* Green color for the title */
-      margin-bottom: 8px;
-    }
-
-    .content {
-      color: #333;
-      margin-bottom: 16px;
-    }
-
-    .votingSection {
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin-top: 8px;
+      flex-direction: column;
+      justify-content: space-between;
 
-      .MuiSvgIcon-root {
-        margin-right: 5px;
-      }
-    }
-
-    .commentsSection {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-top: -40px;
-
-      .MuiSvgIcon-root {
-        margin-right: 5px;
-      }
-    }
-
-    .commentInputSection {
-      margin-top: 16px;
-
-      .commentInput {
-        margin-bottom: 8px;
+      .title {
+          color: #000000; /* Green color for the title */
+          margin-bottom: 8px;
       }
 
-      .addCommentButton {
-        background-color: #4caf50; /* Green color for the button */
-        color: #fff;
+      .content {
+          color: #424141;
+          margin-bottom: 16px;
+          border-radius: 8px; /* Optional: for rounded corners */
+          padding: 10px; /* Optional: for some padding */
       }
-    }
+
+      .votingSection {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-top: 8px;
+
+          .MuiSvgIcon-root {
+              margin-right: 5px;
+          }
+      }
+
+      .commentsSection {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-top: -40px;
+
+          .MuiSvgIcon-root {
+              margin-right: 5px;
+          }
+      }
+
+      .commentInputSection {
+          margin-top: 16px;
+
+          .commentInput {
+              margin-bottom: 8px;
+          }
+
+          .addCommentButton {
+              background-color: #4caf50; /* Green color for the button */
+              color: #fff;
+          }
+      }
   }
 }
