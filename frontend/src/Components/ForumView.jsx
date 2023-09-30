@@ -4,9 +4,7 @@ import { dataPost } from "./mockData";
 import CreateIcon from "@mui/icons-material/Create";
 import "./scss/leftNav.scss";
 
-const Sidebar = ({ children }) => {
-  return <div className="sidebar">{children}</div>;
-};
+const Sidebar = ({ children }) => <div className="sidebar">{children}</div>;
 
 const ForumView = () => {
   const [posts, setPosts] = useState(dataPost);
@@ -14,15 +12,11 @@ const ForumView = () => {
 
   const handleSort = () => {
     const sortedPosts = [...posts];
-
-    if (sortByVotesAsc) {
-      sortedPosts.sort((a, b) => b.votes - a.votes); // Sort in descending order
-    } else {
-      sortedPosts.sort((a, b) => a.votes - b.votes); // Sort in ascending order
-    }
-
+    sortedPosts.sort((a, b) =>
+      sortByVotesAsc ? b.votes - a.votes : a.votes - b.votes
+    );
     setPosts(sortedPosts);
-    setSortByVotesAsc(!sortByVotesAsc); // Toggle the sorting order
+    setSortByVotesAsc(!sortByVotesAsc);
   };
 
   return (
@@ -30,19 +24,13 @@ const ForumView = () => {
       style={{
         fontFamily: "Arial, sans-serif",
         display: "flex",
-        padding: "0px, 20px, 20px, 20px",
-        backgroundColor: "#fffffff",
+        padding: "0 20px 20px 20px",
+        backgroundColor: "#ffffff",
         color: "#333",
       }}
     >
       {/* Sidebar */}
-      <div
-        style={{
-          width: "200px",
-          marginRight: "40px",
-        }}
-      >
-        {/* Your sidebar content goes here */}
+      <div style={{ width: "200px", marginRight: "40px" }}>
         <Sidebar>
           <button className="writeAPostButton">WRITE A POST</button>
           <div className="breakLineWriteAPostButton"></div>
@@ -50,48 +38,15 @@ const ForumView = () => {
             <h1 className="leftNavBarTopicHeader">Topics</h1>
             <div className="breakLineListOfTopics"></div>
             <ul className="listOfTopicsSection">
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
-              <li>topic</li>
+              {Array.from({ length: 30 }, (_, i) => (
+                <li key={i}>topic</li>
+              ))}
             </ul>
             <button className="showMoreTopicsButton">Show more</button>
             <div className="breakLineWriteAPostButton"></div>
             <div className="leftNavBarMyProfile">
               <p>
-                <CreateIcon
-                  style={{
-                    marginRight: '7%',
-                  }}
-                />
+                <CreateIcon style={{ marginRight: "7%" }} />
                 My Profile
               </p>
             </div>
@@ -102,7 +57,7 @@ const ForumView = () => {
 
       {/* Main Content */}
       <div style={{ flex: "1", marginLeft: "2%" }}>
-        <h1 style={{ color: "#000", marginBottom: "px" }}>All Posts</h1>
+        <h1 style={{ color: "#000", marginBottom: "0" }}>All Posts</h1>
         <hr style={{ border: "1px solid #ccc", marginBottom: "10px" }} />
         <div
           style={{
@@ -112,7 +67,6 @@ const ForumView = () => {
             alignItems: "center",
           }}
         >
-          {/* Move the button to the right */}
           <div style={{ marginLeft: "auto" }}>
             <button
               style={{
