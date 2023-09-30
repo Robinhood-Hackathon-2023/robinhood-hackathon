@@ -9,7 +9,6 @@ import ForumView from './Components/ForumView';
 function App() {
   return (
     <Router>
-      <div>
         <Header />
         <Routes>
           <Route path="/" exact element={<ForumView />} />
@@ -17,7 +16,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/view" element={<ForumView />} />
         </Routes>
-      </div>
     </Router>
   );
 }

@@ -48,7 +48,7 @@ const RegisterButton = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 3%;
   min-width: 90px;  /* Set a min-width property */
   text-align: center;  /* Ensure text is centered */
 `;

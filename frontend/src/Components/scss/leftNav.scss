@@ -1,0 +1,101 @@
+/* Sidebar.css */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 270px; /* Adjust the width as needed */
+  background-color: #f7f7f7;
+  color: #fff; /* Text color */
+  overflow-y: auto; /* Enable scrolling if content exceeds the sidebar height */
+}
+
+.writeAPostButton {
+    display: inline-flex;
+    padding: 12px 47px 11px 46px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 2px solid #00AF66;
+    color: #00AF66;
+    margin-top: 15%;
+    margin-left: 11%;
+    margin-bottom: 8%;
+}
+
+.writeAPostButton:hover{
+    cursor: pointer;
+}
+
+.leftNavBarTopicHeader{
+    margin-left: 7%;
+    margin-top: 8%;
+    color: #000;
+    font-family: Karla;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.breakLineWriteAPostButton {
+    width: 225px;
+    margin-left: 9%;
+    margin-top: 10%;
+    background-color: #aeaeae;
+    height: 1px;
+}
+
+.breakLineListOfTopics{
+    width: 1px;
+    background-color: #aeaeae;
+    height: 42%;
+    margin-top: 2%;
+    position: absolute;
+    margin-left: 8%;
+}
+
+.leftNavBarTopicsSection{
+    overflow-y: visible;
+    color: #000;
+    margin-top: 0;
+    
+}
+
+.listOfTopicsSection{
+    list-style-type: none;
+    padding-left: 12%;
+    font-size: 1.25rem;
+}
+
+.listOfTopicsSection > li {
+    margin-bottom: 2%;
+}
+
+.showMoreTopicsButton {
+    width: 40%;
+    margin-left: 2%;
+    margin-bottom: 10%;
+    height: 22px;
+    border: none;
+    color: #999;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: none;
+}
+
+.showMoreTopicsButton:hover {
+    cursor: pointer;
+}
+.leftNavBarMyProfile {
+    margin: 10%;
+}
+
+.leftNavBarMyProfile > p {
+    font-size: 1.5em;
+}

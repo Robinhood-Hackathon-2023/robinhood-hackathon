@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import ForumPost from "./ForumPost";
 import { dataPost } from "./mockData";
+import CreateIcon from "@mui/icons-material/Create";
+import "./scss/leftNav.scss";
+
+const Sidebar = ({ children }) => {
+  return <div className="sidebar">{children}</div>;
+};
 
 const ForumView = () => {
   const [posts, setPosts] = useState(dataPost);
@@ -24,7 +30,7 @@ const ForumView = () => {
       style={{
         fontFamily: "Arial, sans-serif",
         display: "flex",
-        padding: "20px",
+        padding: "0px, 20px, 20px, 20px",
         backgroundColor: "#fffffff",
         color: "#333",
       }}
@@ -33,19 +39,71 @@ const ForumView = () => {
       <div
         style={{
           width: "200px",
-          backgroundColor: "#ddd",
-          marginRight: "20px",
-          padding: "10px",
+          marginRight: "40px",
         }}
       >
         {/* Your sidebar content goes here */}
-        Sidebar Content
+        <Sidebar>
+          <button className="writeAPostButton">WRITE A POST</button>
+          <div className="breakLineWriteAPostButton"></div>
+          <div className="leftNavBarTopicsSection">
+            <h1 className="leftNavBarTopicHeader">Topics</h1>
+            <div className="breakLineListOfTopics"></div>
+            <ul className="listOfTopicsSection">
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+              <li>topic</li>
+            </ul>
+            <button className="showMoreTopicsButton">Show more</button>
+            <div className="breakLineWriteAPostButton"></div>
+            <div className="leftNavBarMyProfile">
+              <p>
+                <CreateIcon
+                  style={{
+                    marginRight: '7%',
+                  }}
+                />
+                My Profile
+              </p>
+            </div>
+            <div className="breakLineWriteAPostButton"></div>
+          </div>
+        </Sidebar>
       </div>
 
       {/* Main Content */}
-      <div style={{ flex: "1" }}>
+      <div style={{ flex: "1", marginLeft: "2%" }}>
         <h1 style={{ color: "#000", marginBottom: "px" }}>All Posts</h1>
-        <hr style={{ border: "1px solid #ccc", marginBottom: "10px" }} /> 
+        <hr style={{ border: "1px solid #ccc", marginBottom: "10px" }} />
         <div
           style={{
             display: "flex",

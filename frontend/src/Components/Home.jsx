@@ -1,41 +1,64 @@
 // Home.js
 import React from 'react';
+import "./scss/leftNav.scss";
 
-const homeContainerStyle = {
-  textAlign: 'center',
-  color: '#2ecc71',
-  padding: '50px',
-};
-
-const titleStyle = {
-  fontSize: '40px',
-  fontWeight: 'bold',
-  marginBottom: '20px',
-};
-
-const descriptionStyle = {
-  fontSize: '20px',
-  lineHeight: '1.8', // Increased line height for better readability
-  marginBottom: '15px', // Added margin at the bottom for separation
+const Sidebar = ({ children }) => {
+  return <div className="sidebar">{children}</div>;
 };
 
 const  Home = () => {
   return (
-    <div style={homeContainerStyle}>
-      <h2 style={titleStyle}>Welcome to Mind Wellness</h2>
-      <p style={descriptionStyle}>
-        At Mind Wellness, we are dedicated to providing exceptional mental health services
-        to support your well-being. Explore our range of services, tailored to help you on
-        your journey towards better mental health and overall happiness.
-      </p>
-      <p style={descriptionStyle}>
-        Our experienced team of professionals is committed to assisting you in achieving
-        mental wellness through evidence-based practices and personalized care.
-      </p>
-      <p style={descriptionStyle}>
-        Take the first step towards a healthier mind. Your well-being is our priority.
-      </p>
-    </div>
+    <Sidebar>
+      <button className="writeAPostButton">WRITE A POST</button>
+      <div className="breakLineWriteAPostButton"></div>
+      <div className="leftNavBarTopicsSection">
+        <h1 className="leftNavBarTopicHeader">Topics</h1>
+        <div className="breakLineListOfTopics"></div>
+        <ul className="listOfTopicsSection">
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+          <li>topic</li>
+        </ul>
+        <button className="showMoreTopicsButton">Show more</button>
+        <div className="breakLineWriteAPostButton"></div>
+        <div className="leftNavBarMyProfile">
+          <p>
+            <i> icon here </i>
+            My Profile
+          </p>
+        </div>
+        <div className="breakLineWriteAPostButton"></div>
+      </div>
+    </Sidebar>
   );
 }
 
