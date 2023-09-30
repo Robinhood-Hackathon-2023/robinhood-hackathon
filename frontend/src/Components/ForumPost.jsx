@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Typography, IconButton, Badge, TextField, Button } from '@material-ui/core';
 import { ThumbUp, ThumbDown, Comment } from '@material-ui/icons';
+import './css/ForumPost.css';
 
 const CommentSection = ({ comments }) => {
   return (
@@ -46,13 +47,12 @@ const ForumPost = ({ post }) => {
   };
 
   return (
-    <Card style={{ marginBottom: '20px' }}>
-      <CardContent>
-        <Typography variant="h6">{post.title}</Typography>
-        <Typography>{post.content}</Typography>
+    <Card className="cardContainer">
+    <CardContent className="cardContent">
+      <Typography variant="h6" className="title">{post.title}</Typography>
+      <Typography className="content">{post.content}</Typography>
 
-        {/* Voting Section */}
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+      <div className="votingSection">
           <IconButton color="primary" onClick={() => handleVote('upvote')}>
             <ThumbUp />
           </IconButton>
@@ -62,38 +62,36 @@ const ForumPost = ({ post }) => {
           <IconButton color="primary" onClick={() => handleVote('downvote')}>
             <ThumbDown />
           </IconButton>
-        </div>
+      </div>
 
-        {/* Comment Section */}
-        <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+      <div className="commentsSection">
           <IconButton color="primary" onClick={handleToggleCommentInput}>
             <Comment />
           </IconButton>
           <span style={{ marginLeft: '5px' }}>{post.comments.length} comments</span>
+      </div>
+
+      <CommentSection comments={post.comments} />
+
+      {showCommentInput && (
+        <div className="commentInputSection">
+          <TextField
+            label="Your Comment"
+            variant="outlined"
+            multiline
+            rows={2}
+            fullWidth
+            className="commentInput"
+            value={newComment}
+            onChange={handleCommentChange}
+          />
+          <Button variant="contained" color="primary" onClick={handleAddComment} className="addCommentButton">
+            Add Comment
+          </Button>
         </div>
-
-        {/* Render CommentSection component */}
-        <CommentSection comments={post.comments} />
-
-        {/* Comment Input */}
-        {showCommentInput && (
-          <div style={{ marginTop: '10px' }}>
-            <TextField
-              label="Your Comment"
-              variant="outlined"
-              multiline
-              rows={2}
-              fullWidth
-              value={newComment}
-              onChange={handleCommentChange}
-            />
-            <Button variant="contained" color="primary" onClick={handleAddComment}>
-              Add Comment
-            </Button>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+      )}
+    </CardContent>
+  </Card>
   );
 };
 
