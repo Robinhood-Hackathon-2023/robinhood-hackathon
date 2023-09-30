@@ -8,7 +8,9 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import { ThumbUp, ThumbDown, Comment } from "@material-ui/icons";
+import { Comment } from "@material-ui/icons";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import "./scss/ForumPost.scss";
 
 const CommentSection = ({ comments }) => {
@@ -26,18 +28,37 @@ const CommentSection = ({ comments }) => {
   );
 };
 
-const ForumPost = ({ post }) => {
+const ForumPost = ({ post, posts, setPosts }) => {
   const [votes, setVotes] = useState(post.votes);
+  const [likeFilled, setLikeFilled] = useState(false);
+  const [dislikeFilled, setDislikeFilled] = useState(false);
   const [showCommentInput, setShowCommentInput] = useState(false);
   const [newComment, setNewComment] = useState("");
 
   const handleVote = (type) => {
-    // Simulate updating votes (you would typically send this to a server)
-    if (type === "upvote") {
-      setVotes(votes + 1);
-    } else if (type === "downvote") {
-      setVotes(votes - 1);
-    }
+    setVotes((prevVotes) => {
+      let updatedVotes;
+  
+      if (type === "upvote") {
+        const reward = dislikeFilled ? 2 : 1;
+        updatedVotes = likeFilled ? prevVotes - 1 : prevVotes + reward;
+        setLikeFilled(!likeFilled);
+        setDislikeFilled(false);
+      } else if (type === "downvote") {
+        const reward = likeFilled ? 2 : 1;
+        updatedVotes = dislikeFilled ? prevVotes + 1 : prevVotes - reward;
+        setDislikeFilled(!dislikeFilled);
+        setLikeFilled(false);
+      }
+  
+      // Update the posts object
+      const updatedPosts = posts.map((p) =>
+        p.id === post.id ? { ...p, votes: updatedVotes } : p
+      );
+      setPosts(updatedPosts);
+  
+      return updatedVotes;
+    });
   };
 
   const handleToggleCommentInput = () => {
@@ -49,10 +70,7 @@ const ForumPost = ({ post }) => {
   };
 
   const handleAddComment = () => {
-    // Simulate adding a new comment (you would typically send this to a server)
     console.log("New Comment:", newComment);
-
-    // Clear the comment input and hide it
     setNewComment("");
     setShowCommentInput(false);
   };
@@ -67,10 +85,22 @@ const ForumPost = ({ post }) => {
 
         <div className="votingSection">
           <IconButton color="primary" onClick={() => handleVote("upvote")}>
-            <ThumbUp style={{ fill: "true" }} />
+            <ThumbUpIcon
+              style={{
+                fill: likeFilled ? 'black' : 'none',
+                stroke: 'black',
+                strokeWidth: 2,
+              }}
+            />
           </IconButton>
           <IconButton color="primary" onClick={() => handleVote("downvote")}>
-            <ThumbDown style={{ fill: "false" }} />
+            <ThumbDownIcon
+              style={{
+                fill: dislikeFilled ? 'black' : 'none',
+                stroke: 'black',
+                strokeWidth: 2,
+              }}
+            />
           </IconButton>
           <Badge badgeContent={votes} color="primary">
             <span style={{ margin: "0 10px" }}>Votes</span>
