@@ -8,7 +8,7 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import { ArrowUpward, ArrowDownward, Comment } from "@material-ui/icons";
+import { ThumbUp, ThumbDown, Comment } from "@material-ui/icons";
 import "./scss/ForumPost.scss";
 
 const CommentSection = ({ comments }) => {
@@ -67,10 +67,10 @@ const ForumPost = ({ post }) => {
 
         <div className="votingSection">
           <IconButton color="primary" onClick={() => handleVote("upvote")}>
-            <ArrowUpward style={{ color: "green" }} />
+            <ThumbUp style={{ fill: "true" }} />
           </IconButton>
           <IconButton color="primary" onClick={() => handleVote("downvote")}>
-            <ArrowDownward style={{ color: "red" }} />
+            <ThumbDown style={{ fill: "false" }} />
           </IconButton>
           <Badge badgeContent={votes} color="primary">
             <span style={{ margin: "0 10px" }}>Votes</span>
