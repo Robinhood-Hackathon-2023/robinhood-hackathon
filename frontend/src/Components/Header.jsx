@@ -1,44 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const handwriting = keyframes`
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-`;
+import styled from 'styled-components';
+import { FaSearch } from 'react-icons/fa';
+import logo from '../mindLogo.png';
 
 const headerStyle = {
-  backgroundColor: '#2ecc71',
-  padding: '20px 0',
+  backgroundColor: '#fff',
+  padding: '0px 0',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  borderBottom: '2px solid #000',
 };
 
 const Title = styled(Link)`
   color: #fff;
   text-decoration: none;
-  padding-left: 100px;
-  padding-bottom: 100px;
+  padding-left: 10px;
   font-size: 48px;
   font-weight: bold;
   font-family: 'Pacifico', cursive;
-  animation: ${fadeIn} 2s ease-in-out;
-  overflow: hidden; /* Hide overflow to make the handwriting effect */
-  white-space: nowrap; /* Prevent wrapping to maintain the effect */
+  margin-top: 20px;
 `;
 
 const navContainerStyle = {
@@ -46,51 +28,80 @@ const navContainerStyle = {
   alignItems: 'center',
 };
 
-const navLinkStyle = {
-  color: '#fff',
-  textDecoration: 'none',
-  margin: '0 15px',
-  fontSize: '18px',
-  fontWeight: 'bold',
-  paddingRight: '100px',
-  textTransform: 'uppercase',
-  letterSpacing: '1px',
-  transition: 'color 0.3s ease-in-out',
-};
-
-const HandwritingEffect = styled.div`
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  animation: ${handwriting} 2s steps(40, end) forwards;
+const LoginButton = styled(Link)`
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  min-width: 90px;  /* Set a min-width property */
+  text-align: center;  /* Ensure text is centered */
 `;
+
+const RegisterButton = styled(Link)`
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 20px;
+  min-width: 90px;  /* Set a min-width property */
+  text-align: center;  /* Ensure text is centered */
+`;
+
+
+const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border: 2px solid #ddd;  /* Adjusted border color to light grey */
+  border-radius: 50px;
+  padding: 10px 10px;  /* Adjusted padding to increase height */
+  margin-right: 975px;
+  
+`;
+
+const SearchInput = styled.input`
+  border: none;
+  outline: none;
+  padding-left: 5px;
+  padding-top: 5px;  /* Added padding-top and padding-bottom to increase height */
+  padding-bottom: 5px;  /* Added padding-top and padding-bottom to increase height */
+  ::placeholder {
+    color: gray;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  margin-right: 50px;  /* This will push the ButtonContainer to the right */
+  display: flex;
+`;
+
 
 function Header() {
   return (
     <header style={headerStyle}>
-      <div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
         <Title to="/">
-          <HandwritingEffect>Mind</HandwritingEffect>
+          <img src={logo} alt="Logo" style={{ height: '100px' }} />
         </Title>
+        <SearchContainer>
+          <FaSearch />
+          <SearchInput placeholder="Search" />
+        </SearchContainer>
       </div>
-      <nav style={navContainerStyle}>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex' }}>
-          <li>
-            <Link to="/" style={navLinkStyle}>Home</Link>
-          </li>
-          <li>
-            <Link to="/view" style={navLinkStyle}>Posts</Link>
-          </li>
-          <li>
-            <Link to="/signin" style={navLinkStyle}>Sign In</Link>
-          </li>
-          <li>
-            <Link to="/register" style={navLinkStyle}>Register</Link>
-          </li>
-        </ul>
-      </nav>
+      
+      <ButtonContainer>
+        <LoginButton to="/signin">Log In</LoginButton>
+        <RegisterButton to="/register">Register</RegisterButton>
+      </ButtonContainer>
     </header>
   );
 }
 
 export default Header;
+
+
