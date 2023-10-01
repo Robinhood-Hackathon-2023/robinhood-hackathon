@@ -16,12 +16,12 @@ export const ProfileText = styled(Link)`
 
 export const SideMenu = ({ openOverlay }) => {
   const mentalHealthTopics = [
-    "Managing Stress",
-    "Building Resilience",
+    "Stress",
+    "Financial Difficulty",
     "Mindfulness Meditation",
-    "Coping with Anxiety",
+    "Depression",
     "Emotional Well-being",
-    "Positive Affirmations",
+    "Burnout",
     "Self-Care Practices",
     "Healthy Relationships",
     "Sleep Hygiene",
