@@ -6,6 +6,7 @@ import SignIn from "./Components/SignIn";
 import Register from "./Components/Register";
 import ForumView from "./Components/ForumView";
 import SideMenu from "./Components/SideMenu";
+import ProfilePage from "./Components/ProfilePage";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/view" element={<ForumView />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>
     </Router>
