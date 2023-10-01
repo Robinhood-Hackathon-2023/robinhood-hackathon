@@ -11,7 +11,8 @@ import { dataPost } from "./Components/mockData";
 
 function App() {
   const [posts, setPosts] = React.useState(dataPost);
-
+  const [username, setUsername] = React.useState("");
+  
   return (
     <Router>
       <div
@@ -36,11 +37,27 @@ function App() {
         }}
       >
         <Routes>
-          <Route path="/" exact element={<MainPage posts={posts} setPosts={setPosts} />} />
+          <Route
+            path="/"
+            exact
+            element={<MainPage posts={posts} setPosts={setPosts} />}
+          />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/post/:postId" element={<ExpandedPost posts={posts} setPosts={setPosts} />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route
+            path="/post/:postId"
+            element={
+              <ExpandedPost
+                posts={posts}
+                setPosts={setPosts}
+                username={username}
+              />
+            }
+          />
+          <Route
+            path="/profile"
+            element={<ProfilePage setUsername={setUsername} />}
+          />
         </Routes>
       </div>
     </Router>

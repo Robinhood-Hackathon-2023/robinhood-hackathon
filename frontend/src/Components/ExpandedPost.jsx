@@ -45,17 +45,17 @@ const CommentSection = ({ comments }) => {
   );
 };
 
-const ExpandedPost = ({ posts, setPosts }) => {
+const ExpandedPost = ({ posts, setPosts, username }) => {
   const location = useLocation();
 
-  const [votes, setVotes] = useState(
+  const [votes, setVotes] = React.useState(
     location.state && location.state.post ? location.state.post.votes : 0
   );
-  const [likeFilled, setLikeFilled] = useState(false);
-  const [dislikeFilled, setDislikeFilled] = useState(false);
-  const [showCommentInput, setShowCommentInput] = useState(false);
-  const [newComment, setNewComment] = useState("");
-  const [post, setPost] = useState(
+  const [likeFilled, setLikeFilled] = React.useState(false);
+  const [dislikeFilled, setDislikeFilled] = React.useState(false);
+  const [showCommentInput, setShowCommentInput] = React.useState(false);
+  const [newComment, setNewComment] = React.useState("");
+  const [post, setPost] = React.useState(
     location.state && location.state.post ? location.state.post : null
   );
 
@@ -104,7 +104,7 @@ const ExpandedPost = ({ posts, setPosts }) => {
 
     const newCommentObj = {
       id: post.comments.length + 1, // You may adjust the comment ID logic
-      user: "Current User", // Replace with the actual user
+      user: username, // username prop
       text: newComment,
     };
 

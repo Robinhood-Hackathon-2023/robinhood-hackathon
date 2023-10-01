@@ -67,9 +67,9 @@ const submitButtonStyle = {
 };
 
 const PostOverlay = ({ onClose, onSubmit, posts }) => {
-  const [postTitle, setPostTitle] = useState('');
-  const [postTag, setPostTag] = useState('');
-  const [postText, setPostText] = useState('');
+  const [postTitle, setPostTitle] = React.useState("");
+  const [postTag, setPostTag] = React.useState("");
+  const [postText, setPostText] = React.useState("");
 
   const handleTitleChange = (e) => {
     setPostTitle(e.target.value);

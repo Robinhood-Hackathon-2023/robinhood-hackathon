@@ -78,7 +78,9 @@ const FileInput = styled.input`
 
 
 function ProfilePage() {
-    const [isVerified, setIsVerified] = useState(false);  
+    const [isVerified, setIsVerified] = React.useState(false);  
+    const [username, setUsername] = React.useState("");
+
     const refreshPage = () => {
         window.location.reload();
       }
@@ -106,7 +108,13 @@ function ProfilePage() {
           <StyledUl>
             <li className='username'>
               <StyledH4>Username</StyledH4>
-              <StyledInput type="text" placeholder="" maxLength="10" />
+              <StyledInput 
+                type="text"
+                placeholder="" 
+                maxLength="10"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </li>
             <li className='current_c' /*company*/>
               <StyledH4>Company</StyledH4>
