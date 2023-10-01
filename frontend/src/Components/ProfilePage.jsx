@@ -78,23 +78,17 @@ const FileInput = styled.input`
 
 
 function ProfilePage() {
-    const [isVerified, setIsVerified] = useState(true);  
+    const [isVerified, setIsVerified] = useState(false);  
     const refreshPage = () => {
         window.location.reload();
       }
 
-    const handleFileUpload = (event) => {
+      const handleFileUpload = (event) => {
         const file = event.target.files[0];
         if (file) {
-            // Assuming a function uploadDocument exists to handle the file upload
-            // uploadDocument(file).then(response => {
-            //   if (response.success) {
-            //     setIsVerified(true);  // Update verification status on successful upload
-            //   }
-            // });
-            console.log('File uploaded:', file.name);
+          setIsVerified(true);  // Set isVerified to true as soon as a file is selected
         }
-    }
+      }
 
   return (
     <Container>
