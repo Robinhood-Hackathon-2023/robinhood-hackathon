@@ -84,7 +84,7 @@ const ButtonContainer = styled.div`
 function Header() {
   return (
     <header style={headerStyle}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', width: '74%' }}>
         <Title to="/">
           <img src={logo} alt="Logo" style={{ height: '100px' }} />
         </Title>

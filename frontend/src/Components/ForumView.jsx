@@ -57,8 +57,20 @@ const ForumView = () => {
 
       {/* Main Content */}
       <div style={{ flex: "1", marginLeft: "2%" }}>
-        <h1 style={{ color: "#000", marginBottom: "0" }}>All Posts</h1>
-        <hr style={{ border: "1px solid #ccc", marginBottom: "10px" }} />
+        <div style={{ display: "-webkit-inline-box", marginTop: "2%" }}>
+          <h1 style={{ color: "#000", marginBottom: "0" }}>All Posts</h1>
+          {/* TODO: Fix all post top margin from top nav and hot posts filter button below this comment */}
+          <h2 style={{ color: "#000", marginBottom: "0", marginTop: "auto", marginLeft: "286%", fontSize: "1em" }}>
+            Hot Posts
+          </h2>
+        </div>
+        <hr
+          style={{
+            border: "1px solid #ccc",
+            marginBottom: "10px",
+            width: "100%",
+          }}
+        />
         <div
           style={{
             display: "flex",
