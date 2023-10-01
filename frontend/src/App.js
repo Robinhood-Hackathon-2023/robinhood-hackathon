@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import SignIn from "./Components/SignIn";
 import Register from "./Components/Register";
-import ForumView from "./Components/ForumView";
-import SideMenu from "./Components/SideMenu";
+import { MainPage } from "./Components/MainPage";
 import ProfilePage from "./Components/ProfilePage";
 
 function App() {
@@ -33,29 +32,10 @@ function App() {
         }}
       >
         <Routes>
-          <Route
-            path="/"
-            exact
-            element={
-              <>
-                <div
-                  style={{
-                    position: "fixed",
-                    top: "145px",
-                    left: "0",
-                    width: "200px",
-                    zIndex: "100",
-                  }}
-                >
-                  <SideMenu />
-                </div>
-                <ForumView />
-              </>
-            }
-          />
+          <Route path="/" exact element={<MainPage />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/view" element={<ForumView />} />
+          <Route path="/view" element={<MainPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>
