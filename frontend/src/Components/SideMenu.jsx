@@ -7,7 +7,7 @@ const Sidebar = ({ children }) => {
   return <div className="sidebar">{children}</div>;
 };
 
-const SideMenu = () => {
+export const SideMenu = ({ openOverlay }) => {
   const mentalHealthTopics = [
     "Managing Stress",
     "Building Resilience",
@@ -23,7 +23,7 @@ const SideMenu = () => {
 
   return (
     <Sidebar>
-      <button className="writeAPostButton">WRITE A POST</button>
+      <button className="writeAPostButton" onClick={openOverlay} >WRITE A POST</button>
       <div className="breakLineWriteAPostButton"></div>
       <div className="leftNavBarTopicsSection">
         <h1 className="leftNavBarTopicHeader">Topics</h1>
