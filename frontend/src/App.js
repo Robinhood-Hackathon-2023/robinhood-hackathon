@@ -4,10 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import SignIn from "./Components/SignIn";
 import Register from "./Components/Register";
+import ExpandedPost from "./Components/ExpandedPost";
 import { MainPage } from "./Components/MainPage";
 import ProfilePage from "./Components/ProfilePage";
+import { dataPost } from "./Components/mockData";
 
 function App() {
+  const [posts, setPosts] = React.useState(dataPost);
+
   return (
     <Router>
       <div
@@ -32,10 +36,10 @@ function App() {
         }}
       >
         <Routes>
-          <Route path="/" exact element={<MainPage />} />
+          <Route path="/" exact element={<MainPage posts={posts} setPosts={setPosts} />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/view" element={<MainPage />} />
+          <Route path="/post/:postId" element={<ExpandedPost posts={posts} setPosts={setPosts} />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>

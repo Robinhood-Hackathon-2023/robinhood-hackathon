@@ -1,12 +1,10 @@
 import { ForumView } from './ForumView';
 import { SideMenu } from './SideMenu';
 import PostOverlay from './PostOverlay';
-import { dataPost } from "./mockData";
 import React from 'react';
 
-export const MainPage = () => {
+export const MainPage = ({ posts, setPosts}) => {
   const [isOverlayOpen, setIsOverlayOpen] = React.useState(false);
-  const [posts, setPosts] = React.useState(dataPost);
 
   const openOverlay = () => {
     setIsOverlayOpen(true);
