@@ -14,7 +14,7 @@ export const ProfileText = styled(Link)`
   text-decoration: none;
   font-size: 1.5em;`
 
-const SideMenu = ({ openOverlay }) => {
+export const SideMenu = ({ openOverlay }) => {
   const mentalHealthTopics = [
     "Managing Stress",
     "Building Resilience",

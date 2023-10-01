@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -63,16 +63,51 @@ const SaveButton = styled.button`
   margin-right: auto;
 `;
 
+const VerifiedDiv = styled.div`
+  background-color: ${props => props.isVerified ? 'green' : 'red'};
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
+const FileInput = styled.input`
+  margin-top: 10px;
+`;
+
+
 
 function ProfilePage() {
+    const [isVerified, setIsVerified] = useState(true);  
     const refreshPage = () => {
         window.location.reload();
       }
+
+    const handleFileUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            // Assuming a function uploadDocument exists to handle the file upload
+            // uploadDocument(file).then(response => {
+            //   if (response.success) {
+            //     setIsVerified(true);  // Update verification status on successful upload
+            //   }
+            // });
+            console.log('File uploaded:', file.name);
+        }
+    }
 
   return (
     <Container>
       <FormContainer>
         <StyledH1>Edit Profile</StyledH1>  {/* Updated h1 to StyledH1 */}
+        <VerifiedDiv isVerified={isVerified}>
+          {isVerified ? 'You are verified' : 'Please upload a document for verification'}
+        </VerifiedDiv>
+        {!isVerified && (
+          <div>
+            <FileInput type="file" onChange={handleFileUpload} />
+          </div>
+        )}
         <div className='list_wrap'>
           <StyledUl>
             <li className='username'>
