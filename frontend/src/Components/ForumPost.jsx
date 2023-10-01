@@ -80,7 +80,24 @@ const ForumPost = ({ post, posts, setPosts }) => {
   };
 
   const handleAddComment = () => {
-    console.log("New Comment:", newComment);
+    const newCommentObject = {
+      id: Math.random().toString(36).substring(7), // Generate a unique ID
+      user: "User Name", // Replace with the actual user's name
+      text: newComment,
+    };
+
+    // Update the post object with the new comment
+    const updatedPost = {
+      ...post,
+      comments: post.comments
+        ? [...post.comments, newCommentObject]
+        : [newCommentObject],
+    };
+
+    // Update the posts array with the updated post
+    const updatedPosts = posts.map((p) => (p.id === post.id ? updatedPost : p));
+
+    setPosts(updatedPosts);
     setNewComment("");
     setShowCommentInput(false);
   };
