@@ -9,12 +9,12 @@ const Sidebar = ({ children }) => {
   return <div className="sidebar">{children}</div>;
 };
 
-const ProfileText = styled(Link)`
+export const ProfileText = styled(Link)`
   color: #000;
   text-decoration: none;
   font-size: 1.5em;`
 
-const SideMenu = () => {
+const SideMenu = ({ openOverlay }) => {
   const mentalHealthTopics = [
     "Managing Stress",
     "Building Resilience",
@@ -30,7 +30,7 @@ const SideMenu = () => {
 
   return (
     <Sidebar>
-      <button className="writeAPostButton">WRITE A POST</button>
+      <button className="writeAPostButton" onClick={openOverlay} >WRITE A POST</button>
       <div className="breakLineWriteAPostButton"></div>
       <div className="leftNavBarTopicsSection">
         <h1 className="leftNavBarTopicHeader">Topics</h1>

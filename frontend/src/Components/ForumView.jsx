@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import ForumPost from "./ForumPost";
-import { dataPost } from "./mockData";
 import "./scss/leftNav.scss";
 
-const ForumView = () => {
-  const [posts, setPosts] = useState(dataPost);
+export const ForumView = ({ posts, setPosts }) => {
   const [sortByVotesAsc, setSortByVotesAsc] = useState(null);
 
   const handleSort = () => {
