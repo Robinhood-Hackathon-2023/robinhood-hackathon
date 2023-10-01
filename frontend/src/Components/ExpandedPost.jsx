@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   CardContent,
@@ -13,6 +13,7 @@ import { Comment } from "@material-ui/icons";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { useLocation } from "react-router-dom";
+import VerifiedIcon from '@mui/icons-material/Verified';
 import "./scss/ExpandedPost.scss";
 
 const getChipColor = (label) => {
@@ -31,21 +32,23 @@ const getChipColor = (label) => {
 };
 
 const CommentSection = ({ comments }) => {
+  const sortedComments = comments.sort((a, b) => (b.verified ? 1 : -1));
+
   return (
-    <div>
-      {comments &&
-        comments.map((comment) => (
-          <div key={comment.id}>
-            <Typography>
-              {comment.user}: {comment.text}
-            </Typography>
-          </div>
-        ))}
+    <div style={{ marginTop: '10px' }}>
+      {sortedComments.map((comment) => (
+        <div key={comment.id}>
+          <Typography>
+            {comment.verified && <VerifiedIcon style={{ marginRight: '5px', marginTop: '5px', verticalAlign: 'bottom', color: 'green' }} />}
+            {comment.user}: {comment.text}
+          </Typography>
+        </div>
+      ))}
     </div>
   );
 };
 
-const ExpandedPost = ({ posts, setPosts, username }) => {
+const ExpandedPost = ({ posts, setPosts, username, isVerified }) => {
   const location = useLocation();
 
   const [votes, setVotes] = React.useState(
@@ -106,6 +109,7 @@ const ExpandedPost = ({ posts, setPosts, username }) => {
       id: post.comments.length + 1, // You may adjust the comment ID logic
       user: username, // username prop
       text: newComment,
+      verified: isVerified
     };
 
     const updatedPost = {

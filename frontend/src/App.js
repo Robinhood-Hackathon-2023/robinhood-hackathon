@@ -12,6 +12,7 @@ import { dataPost } from "./Components/mockData";
 function App() {
   const [posts, setPosts] = React.useState(dataPost);
   const [username, setUsername] = React.useState("");
+  const [isVerified, setIsVerified] = React.useState(false);
   
   return (
     <Router>
@@ -51,12 +52,13 @@ function App() {
                 posts={posts}
                 setPosts={setPosts}
                 username={username}
+                isVerified={isVerified}
               />
             }
           />
           <Route
             path="/profile"
-            element={<ProfilePage setUsername={setUsername} />}
+            element={<ProfilePage setUsername={setUsername} setIsVerified={setIsVerified} />}
           />
         </Routes>
       </div>
